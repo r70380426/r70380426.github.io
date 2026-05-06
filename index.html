@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CityRAG: Stepping Into a City via Spatially-Grounded Video Generation</title>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/misc/pin2.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var carousels = bulmaCarousel.attach('#results-carousel', {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        breakpoints: [],     // Keeps it at 1 slide for all screen sizes
+        loop: true,          // This is the magic line! Set this to true.
+  
+        // Other options remain as they were or as per their defaults
+        // navigation: true,   // Arrows will now appear and function on first/last slides
+        // pagination: true,
+        // autoplay: false,
+      });
+    });
+  </script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">CityRAG: Stepping Into a City via Spatially-Grounded Video Generation</h1>
+          <h3 class="title is-3 publication-title">Supplementary Material</h3>
+      
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="hero is-light is-small">
+<!-- <section class="section"> -->
+
+  <br>
+  <!-- <div style="text-align: center; margin-bottom: 2rem;">
+    <img src="./static/teaser/framework.png" width="900px"/>
+  </div> -->
+
+    <div class="container is-max-desktop">
+
+      <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+        
+        <h2 class="title is-4">CityRAG Generates a Simulated Environment of a City</h2>
+        <div class="item" style="display: flex; align-items: center; justify-content: center; height: 100%;">
+          <div style="position: relative; width: 100%;">
+            <video poster="" id="bigben" autoplay controls muted loop playsinline style="width: 100%; height: auto; border-radius: 8px; display: block; border: none;">
+              <source src="./static/teaser/teaser_sf.mp4" type="video/mp4">
+            </video>
+            <div style="position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%); background-color: rgba(255, 255, 255, 0.9); color: black; padding: 6px 16px; border-radius: 6px; font-weight: 400; font-size: 0.95rem; text-align: center; z-index: 10; width: max-content; max-width: 90%;">
+              Given a random image of San Francisco and a trajectory to drive forward, CityRAG generates a video that reveals the actual buildings on the street.
+            </div>
+          </div>
+        </div>
+
+        <br>
+
+        <h2 class="title is-4">CityRAG grounds, I2V hallucinates</h2>
+        <div class="item" style="display: flex; align-items: center; justify-content: center; height: 100%;">
+          <div style="position: relative; width: 100%;">
+            <video poster="" id="bigben" autoplay controls muted loop playsinline style="width: 100%; height: auto; border-radius: 8px; display: block; border: none;">
+              <source src="./static/teaser/bigbenteaser.mp4" type="video/mp4">
+            </video>
+            <div style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background-color: rgba(255, 255, 255, 0.9); color: black; padding: 6px 16px; border-radius: 6px; font-weight: 400; font-size: 0.95rem; text-align: center; z-index: 10; width: max-content; max-width: 90%;">
+              From an image taken on the Westminster Bridge in London, CityRAG (right) generates Big Ben and the Houses of Parliament as the viewpoint rotates left, while a SOTA I2V model (left) hallucinates.
+            </div>
+          </div>
+        </div>
+        
+        <br>
+        <h2 class="title is-4">Controllable Weather and Appearance</h2>
+        <div class="item" style="display: flex; align-items: center; justify-content: center; height: 100%;">
+          <div style="position: relative; width: 100%;">
+            <video poster="" id="weather" autoplay controls muted loop playsinline style="width: 100%; height: auto; border-radius: 8px; display: block; border: none;">
+              <source src="./static/teaser/weather_grid.mp4" type="video/mp4">
+            </video>
+            <div style="position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%); background-color: rgba(255, 255, 255, 0.9); color: black; padding: 6px 16px; border-radius: 6px; font-weight: 400; font-size: 0.95rem; text-align: center; z-index: 10; width: max-content; max-width: 90%;">
+              Exploration of arbitrary weather and appearance at the same location (S King St, Honolulu).
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <h2 class="title is-4">Loop Closure</h2>
+        <div class="item" style="display: flex; align-items: center; justify-content: center; height: 100%;">
+          <div style="position: relative; width: 100%;">
+            <video poster="" id="weather" autoplay controls muted loop playsinline style="width: 100%; height: auto; border-radius: 8px; display: block; border: none;">
+              <source src="./static/teaser/sj_teaser.mp4" type="video/mp4">
+            </video>
+            <div style="position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%); background-color: rgba(255, 255, 255, 0.9); color: black; padding: 6px 16px; border-radius: 6px; font-weight: 400; font-size: 0.95rem; text-align: center; z-index: 10; width: max-content; max-width: 90%;">
+              Geographically grounded and stable generation around Calle Quiñones St, San Juan with loop closure. 
+              This trajectory (top right corner) is user-defined and not found in our database.
+            </div>
+          </div>
+        </div>
+
+      <!-- </div> -->
+
+      <h2 class="subtitle has-text-centered" style="font-size: 1.1rem; margin-top: 1.5rem;">
+        CityRAG generates minutes-long, physically grounded video sequences that
+        1) reconstruct real buildings and roads; 2) are initialized from a first image and respects its weather conditions and dynamic
+        objects;
+        3) follow arbitrary user-defined trajectories and show loop closure.
+      </h2>
+
+    </div>
+    <br>
+</section>
+
+
+<!-- <section class="hero is-light is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <br>
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We address the problem of generating a 3D-consistent, navigable environment that is geographically grounded: a simulated environment of a real physical location. Existing video generative models can produce a plausible sequence that is consistent with a text (T2V) or image (I2V) prompt. However, the capability to reconstruct the real world under arbitrary weather conditions and dynamic object configurations is essential for downstream applications including autonomous driving and robotics simulation. To this end, we present CityRAG, a video generative model that leverages large corpora of geo-registered data as context to ground generation to the physical scene, while maintaining learned priors for complex motion and appearance changes. CityRAG relies on temporally unaligned training data, which teaches the model to semantically disentangle the underlying scene from its transient attributes. Our experiments demonstrate that CityRAG can generate coherent minutes-long, physically grounded video sequences, maintain weather and lighting conditions over thousands of frames, achieve loop closure, and navigate complex trajectories to reconstruct real-world geography.
+          </p>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Data</h2>
+
+        <!-- <p>
+          CityRAG relies on large corpora of geo-registered data as context to ground generation to the physical location.
+        </p> -->
+        <!-- <br> -->
+        <!-- <h3 class="title is-4">Distribution of data</h3> -->
+        <div class="content has-text-justified">
+          <p>
+            With explicit permission from Google, we collect Street View data from Google Maps across 10 diverse cities scattered across the globe: Paris, Athens, Anchorage, Hyderabad, Philadelphia, San Francisco, San Juan, Honolulu, London, and Sao Paolo.
+            Across the 10 cities, we collected a total of 5.5M panoramas. 
+            Importantly, all sensitive information, such as license plates and faces, are blurred prior to collection.
+          </p>
+          <div style="text-align: center;">
+            <img src="./static/data_section/map_sv.png" width="1000px"/>
+          </div>
+          
+          <!-- <h3 class="title is-3">Training on paths that are geographically aligned, but temporally unaligned</h3>
+          <p>
+            We group all data based on their physical location and time of capture. 
+            We create a training pair if we find a continuous path in a city where there exists 2 sets of captures located along the same path (within a distance threshold), but captured at different times (e.g, different dates, or even morning vs. afternoon of the same day).
+            <br><br>
+            This strategy forces CityRAG to disentangle the similarities (buildings, roads) and differences (weather, dynamics, lighting) between the pairs, such that it can reconstruct those similarities while maintaining a consistent transient appearance.
+            See video for details.
+          </p>
+          <div style="text-align: center;">
+            <img src="./static/data_section/train_data.png" width="1000px"/>
+          </div> -->
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+          
+        <br>
+          <h3 class="title is-3">Training on paths that are geographically aligned, but temporally unaligned</h3>
+          <p>
+            We group all data based on their physical location and time of capture. 
+            We create a training pair if we find a continuous path in a city where there exists 2 sets of captures located along the same path (within a distance threshold), but captured at different times (e.g, different dates, or even morning vs. afternoon of the same day).
+            <br><br>
+            This strategy forces CityRAG to disentangle the similarities (buildings, roads) and differences (weather, dynamics, lighting) between the pairs, such that it can reconstruct those similarities while maintaining a consistent transient appearance.
+            See video for details. <br>
+          </p>
+          <br>
+          <div class="video-container">
+            <video poster="./static/data_section/temp_unalign_poster.png" id="garage" controls loop playsinline>
+                <source src="./static/data_section/data_video_walkthrough_v1.mp4" type="video/mp4">
+            </video>
+            
+            <div class="play-overlay" onclick="document.getElementById('garage').play(); this.style.display='none';">
+              <div class="play-button"></div>
+            </div>
+          </div>
+          <br>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="container is-max-desktop">
+      <h2 class="title is-4">Results</h2>
+          <p>
+              The video for geospatial conditioning (left column), trajectory defined by the target video (right column), and the first image of the target video are provided as conditions.
+              The objective is to reconstruct the static structures (e.g., buildings, roads) from the geospatial condition, follow the trajectory, and respect the weather conditions and dynamic objects in the first image condition.
+          </p>
+          <br>
+
+  
+          <h2 class="title is-5">Non-trivial disentanglement of weather / cars (first image) and geometry (geospatial condition)</h2>
+  
+  
+          <div id="results-carousel" class="carousel results-carousel">
+        
+    <div class="item" style="display: flex; flex-direction: column; align-items: center;">
+      <video poster="" id="0" autoplay controls muted loop playsinline style="width: 90%; height: auto; display: block;">
+        <source src="./static/qualitative/ours/0.mp4" type="video/mp4">
+      </video>
+      
+      <div style="background-color: rgba(255, 255, 255, 0.9); color: black; padding: 10px 16px; border-radius: 6px; font-weight: 400; font-size: 0.95rem; text-align: center; width: max-content; max-width: 90%; margin-top: 12px; margin-bottom: 12px;">
+          Follows the weather of the first image. Cars from the first image continue to move realistically. Buildings (e.g., the church) are correctly reconstructed under the desired lighting.
+      </div>
+    </div>
+
+    
+    <div class="item" style="display: flex; flex-direction: column; align-items: center;">
+      <video poster="" id="0" autoplay controls muted loop playsinline style="width: 90%; height: auto; display: block;">
+        <source src="./static/qualitative/ours/6.mp4" type="video/mp4">
+      </video>
+    </div>
+   
+   
+    <div class="item" style="display: flex; flex-direction: column; align-items: center;">
+      <video poster="" id="0" autoplay controls muted loop playsinline style="width: 90%; height: auto; display: block;">
+        <source src="./static/qualitative/ours/11.mp4" type="video/mp4">
+      </video>
+    </div>
+
+
+    <div class="item" style="display: flex; flex-direction: column; align-items: center;">
+      <video poster="" id="0" autoplay controls muted loop playsinline style="width: 90%; height: auto; display: block;">
+        <source src="./static/qualitative/ours/14.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+    
+  <br>
+    <h2 class="title is-5">Non-pixel-aligned geospatial conditions and generations</h2>
+
+    <div id="results-carousel" class="carousel results-carousel">
+        
+
+      <div class="item" style="display: flex; flex-direction: column; align-items: center;">
+      <video poster="" id="0" autoplay controls muted loop playsinline style="width: 90%; height: auto; display: block;">
+        <source src="./static/qualitative/ours/2.mp4" type="video/mp4">
+      </video>
+      
+      <div style="background-color: rgba(255, 255, 255, 0.9); color: black; padding: 10px 16px; border-radius: 6px; font-weight: 400; font-size: 0.95rem; text-align: center; width: max-content; max-width: 90%; margin-top: 12px; margin-bottom: 12px;">
+          Follows the input trajectory closely even when rotating at 180 degrees. 
+          The buildings are rendered before appearing in the geospatial condition. Understands the structure of the scene, rather than relying on a pixel-aligned mapping. 
+      </div>
+    </div>
+
+    <div class="item" style="display: flex; flex-direction: column; align-items: center;">
+      <video poster="" id="0" autoplay controls muted loop playsinline style="width: 90%; height: auto; display: block;">
+        <source src="./static/qualitative/ours/3.mp4" type="video/mp4">
+      </video>
+      <div style="background-color: rgba(255, 255, 255, 0.9); color: black; padding: 10px 16px; border-radius: 6px; font-weight: 400; font-size: 0.95rem; text-align: center; width: max-content; max-width: 90%; margin-top: 12px; margin-bottom: 12px;">
+        The geospatial condition is a video stuck in traffic. CityRAG still generates a plausible sequence that follows the trajectory, showing its understanding of the scene layout.     
+      </div>
+    </div>
+
+    <div class="item" style="display: flex; flex-direction: column; align-items: center;">
+      <video poster="" id="2" autoplay controls muted loop playsinline height="100%" style="width: 100%; display: block;">
+        <source src="./static/qualitative/ours/1.mp4" type="video/mp4">
+      </video>
+      
+      <div style="background-color: rgba(255, 255, 255, 0.9); color: black; padding: 10px 16px; border-radius: 6px; font-weight: 400; font-size: 0.95rem; text-align: center; width: max-content; max-width: 90%; margin-top: 12px; margin-bottom: 12px;">
+          Renders the white fence and green building on the right side of the road that appear in the geo conditioning later. 
+          Understands the structure of the scene, rather than relying on a pixel-aligned mapping.
+      </div>
+    </div>
+
+    
+
+    <div class="item" style="display: flex; flex-direction: column; align-items: center;">
+      <video poster="" id="0" autoplay controls muted loop playsinline style="width: 90%; height: auto; display: block;">
+        <source src="./static/qualitative/ours/15.mp4" type="video/mp4">
+      </video>
+      <div style="background-color: rgba(255, 255, 255, 0.9); color: black; padding: 10px 16px; border-radius: 6px; font-weight: 400; font-size: 0.95rem; text-align: center; width: max-content; max-width: 90%; margin-top: 12px; margin-bottom: 12px;">
+        CityRAG generates a plausible sequence that follows the trajectory without additional context from the geospatial condition, showing its understanding of the scene layout.     
+      </div>
+      
+    </div>
+  
+  </div>
+  <br>
+
+
+    <h2 class="title is-5">Additional results</h2>
+
+    <div id="results-carousel" class="carousel results-carousel">
+
+      <div class="item" style="display: flex; flex-direction: column; align-items: center;">
+        <video poster="" id="0" autoplay controls muted loop playsinline style="width: 90%; height: auto; display: block;">
+          <source src="./static/qualitative/ours/8.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item" style="display: flex; flex-direction: column; align-items: center;">
+        <video poster="" id="0" autoplay controls muted loop playsinline style="width: 90%; height: auto; display: block;">
+          <source src="./static/qualitative/ours/9.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item" style="display: flex; flex-direction: column; align-items: center;">
+        <video poster="" id="0" autoplay controls muted loop playsinline style="width: 90%; height: auto; display: block;">
+          <source src="./static/qualitative/ours/5.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item" style="display: flex; flex-direction: column; align-items: center;">
+        <video poster="" id="0" autoplay controls muted loop playsinline style="width: 90%; height: auto; display: block;">
+          <source src="./static/qualitative/ours/4.mp4" type="video/mp4">
+        </video>
+      </div>
+      
+      <div class="item" style="display: flex; flex-direction: column; align-items: center;">
+        <video poster="" id="0" autoplay controls muted loop playsinline style="width: 90%; height: auto; display: block;">
+          <source src="./static/qualitative/ours/7.mp4" type="video/mp4">
+        </video>
+      </div>
+      
+    
+      <div class="item" style="display: flex; flex-direction: column; align-items: center;">
+        <video poster="" id="0" autoplay controls muted loop playsinline style="width: 90%; height: auto; display: block;">
+          <source src="./static/qualitative/ours/10.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item" style="display: flex; flex-direction: column; align-items: center;">
+        <video poster="" id="0" autoplay controls muted loop playsinline style="width: 90%; height: auto; display: block;">
+          <source src="./static/qualitative/ours/12.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item" style="display: flex; flex-direction: column; align-items: center;">
+        <video poster="" id="0" autoplay controls muted loop playsinline style="width: 90%; height: auto; display: block;">
+          <source src="./static/qualitative/ours/13.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <br><br>
+    <h2 class="title is-4">Baselines</h2>
+          <p>
+              To the best of our understanding, there are no open-source baselines that perform our task of generating a 3D-consistent, navigable environment while simultaneously adhering to an external spatial cache. 
+              We run baselines from each of the categories: 1) I2V + pose control (Gen3C); 2) V2V + pose control (Gen3C, TrajCrafter); 3) V2V + style transfer (AnyV2V). 
+              CityRAG can be considered a superset of these categories, while also possessing a strong understanding of scene content (static vs. transient) and layouts. 
+          </p>
+          <br>
+
+
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <video poster="" id="0" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/qualitative/baselines/0.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        
+        <div class="item">
+          <video poster="" id="1" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/qualitative/baselines/2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item">
+          <video poster="" id="1" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/qualitative/baselines/6.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" id="1" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/qualitative/baselines/3.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item">
+          <video poster="" id="1" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/qualitative/baselines/1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        
+        <div class="item">
+          <video poster="" id="1" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/qualitative/baselines/15.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        
+    </div>
+  </div>
+  <div class="baseline-note">
+  <strong>Note.</strong>
+  These baselines were not designed for the new task we proposed.
+  Their poor visual quality should not be interpreted as a failure;
+  rather, it highlights the gap between existing image/video-conditioned generation tasks and our setting.
+</div>
+  <br><br>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+          <!-- <br> -->
+          <h2 class="title is-3">Inference via User Input and RAG</h2>
+
+          <div class="content has-text-justified">
+
+            <p>
+              CityRAG allows users to navigate arbitrary trajectories that do not exist in the database by stitching multiple retrieved geospatial videos. 
+              In this video example below, CityRAG retrieves and combines two perpendicular paths from the same intersection to construct a new trajectory that resembles turning right. 
+              Despite the discontinuity in the geospatial condition frames, the generator produces a consistent video, indicating its robustness and its understanding of the static and transient elements in a scene.
+            </p>
+            <!-- <div style="text-align: center;">
+              <img src="./static/inference/detailed_retrieve.png" width="900px"/>
+            </div> -->
+
+            <br>
+            <div class="video-container">
+              <video poster="./static/inference/detailed_retrieve.png" id="garage" controls loop playsinline>
+                  <source src="./static/inference/rag_video_masked_compressed.mp4" type="video/mp4">
+              </video>
+              
+              <div class="play-overlay" onclick="document.getElementById('garage').play(); this.style.display='none';">
+                <div class="play-button"></div>
+              </div>
+            </div>
+            <br>
+
+
+
+            <br>
+            <h2 class="title is-4">Minutes-long navigation with arbitrary trajectories</h2>
+            <p>
+              By stitching geospatial videos, users can specify arbitary paths. Then, CityRAG generates consistent sequences via autoregressive generation (AR).
+              Note: CityRAG was not trained on AR. Consecutive generations simply take the last frame of the previous generation as the first image. Geospatial conditions ground each independent generation to ensure consistency (of the static structures).
+
+              <div style="text-align: center;">
+                <img src="./static/inference/pipeline_ar.png" width="600px"/>
+              </div>
+
+              <!-- <br> -->
+              <h2 class="title is-4">Example</h2>
+              <strong>Top</strong>: Generated video (sped up 2x) of the streets of Philadelphia. Even though consecutive generations are linked only by one frame, the video (in particular the static structure) remains mostly stable. Each new generation is labeled by a <span style="color: green;">green border</span>. <br>
+              <strong>Bottom</strong>: Geospatial and trajectory conditions. The trajectory is arbitraily drawn and does not exist as a continuous video in the Street View database. 
+              5 geospatial videos were retrieved and stitched, with each transition labeled in the "Retrieved geospatial #" counter.
+           </p>
+
+              <!-- <div class="item" style="display: flex; flex-direction: column; align-items: center;"></div> -->
+              <video poster="" id="0" autoplay controls muted loop playsinline 
+                  style="width: 60%; height: auto; display: block; margin: 0 auto;">
+                  <source src="./static/navigation/phil_loop_closure_demo_compressed.mp4" type="video/mp4">
+              </video>
+                  
+                  <!-- <div style="background-color: rgba(255, 255, 255, 0.9); color: black; padding: 10px 16px; border-radius: 6px; font-weight: 400; font-size: 0.95rem; text-align: center; width: max-content; max-width: 90%; margin-top: 12px; margin-bottom: 12px;">
+                       -->
+                  <!-- </div> -->
+                <!-- </div> -->
+
+              <h2 class="title is-4">Additional Results: Loop Closure</h2>
+
+              <div id="results-carousel" class="carousel results-carousel">
+                <div class="item" style="display: flex; flex-direction: column; align-items: center;">
+                  <video poster="" id="0" autoplay controls muted loop playsinline style="width: 80%; height: auto; display: block;">
+                    <source src="./static/navigation/athens_loop_closure_compressed.mp4" type="video/mp4">
+                  </video>
+                  
+                  <div style="background-color: rgba(255, 255, 255, 0.9); color: black; padding: 10px 16px; border-radius: 6px; font-weight: 400; font-size: 0.95rem; text-align: center; width: max-content; max-width: 90%; margin-top: 12px; margin-bottom: 12px;">
+                      Athens
+                  </div>
+                </div>
+                
+                <div class="item" style="display: flex; flex-direction: column; align-items: center;">
+                  <video poster="" id="0" autoplay controls muted loop playsinline style="width: 80%; height: auto; display: block;">
+                    <source src="./static/navigation/sj_loop_closure_compressed.mp4" type="video/mp4">
+                  </video>
+                  
+                  <div style="background-color: rgba(255, 255, 255, 0.9); color: black; padding: 10px 16px; border-radius: 6px; font-weight: 400; font-size: 0.95rem; text-align: center; width: max-content; max-width: 90%; margin-top: 12px; margin-bottom: 12px;">
+                      San Juan
+                  </div>
+                </div>
+            </div>
+
+
+            <h2 class="title is-4">Additional Results: Navigation</h2>
+
+              <div id="results-carousel" class="carousel results-carousel">
+                <div class="item" style="display: flex; flex-direction: column; align-items: center;">
+                  <video poster="" id="0" autoplay controls muted loop playsinline style="width: 80%; height: auto; display: block;">
+                    <source src="./static/navigation/sf_nav_with_map_compressed.mp4" type="video/mp4">
+                  </video>
+                  
+                  <div style="background-color: rgba(255, 255, 255, 0.9); color: black; padding: 10px 16px; border-radius: 6px; font-weight: 400; font-size: 0.95rem; text-align: center; width: max-content; max-width: 90%; margin-top: 12px; margin-bottom: 12px;">
+                      San Francisco
+                  </div>
+                </div>
+                
+                <div class="item" style="display: flex; flex-direction: column; align-items: center;">
+                  <video poster="" id="0" autoplay controls muted loop playsinline style="width: 80%; height: auto; display: block;">
+                    <source src="./static/navigation/paris_nav_with_map_compressed.mp4" type="video/mp4">
+                  </video>
+                  
+                  <div style="background-color: rgba(255, 255, 255, 0.9); color: black; padding: 10px 16px; border-radius: 6px; font-weight: 400; font-size: 0.95rem; text-align: center; width: max-content; max-width: 90%; margin-top: 12px; margin-bottom: 12px;">
+                      Paris
+                  </div>
+                </div>
+
+                <div class="item" style="display: flex; flex-direction: column; align-items: center;">
+                  <video poster="" id="0" autoplay controls muted loop playsinline style="width: 80%; height: auto; display: block;">
+                    <source src="./static/navigation/london_nav_with_map_compressed.mp4" type="video/mp4">
+                  </video>
+                  
+                  <div style="background-color: rgba(255, 255, 255, 0.9); color: black; padding: 10px 16px; border-radius: 6px; font-weight: 400; font-size: 0.95rem; text-align: center; width: max-content; max-width: 90%; margin-top: 12px; margin-bottom: 12px;">
+                      London
+                  </div>
+                </div>
+
+
+            </div>
+
+
+          </div>
+          <br>
+         
+  </div>
+</section>
+
+
+</body>
+</html>

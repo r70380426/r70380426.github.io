@@ -1,0 +1,233 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+
+.footer .icon-link {
+    font-size: 25px;
+    color: #000;
+}
+
+.link-block a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dnerf {
+  font-variant: small-caps;
+}
+
+
+.teaser .hero-body {
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+
+.teaser {
+  font-family: 'Google Sans', sans-serif;
+}
+
+
+.publication-title {
+}
+
+.publication-banner {
+  max-height: parent;
+
+}
+
+.publication-banner video {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  object-fit: fit;
+}
+
+.publication-header .hero-body {
+}
+
+.publication-title {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-venue {
+    color: #555;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.publication-awards {
+    color: #ff3860;
+    width: fit-content;
+    font-weight: bolder;
+}
+
+.publication-authors {
+}
+
+.publication-authors a {
+   color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+    text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.publication-banner img {
+}
+
+.publication-authors {
+  /*color: #4286f4;*/
+}
+
+.publication-video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    overflow: hidden;
+    border-radius: 10px !important;
+}
+
+.publication-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.publication-body img {
+}
+
+.results-carousel {
+  overflow: hidden;
+}
+
+.results-carousel .item {
+  margin: 5px;
+  overflow: hidden;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  padding: 0;
+  font-size: 0;
+}
+
+.results-carousel video {
+  margin: 0;
+}
+
+
+.interpolation-panel {
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.interpolation-panel .interpolation-image {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.interpolation-video-column {
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+#interpolation-image-wrapper {
+  width: 100%;
+}
+#interpolation-image-wrapper img {
+  border-radius: 5px;
+}
+
+#results-carousel .slider-container, 
+#results-carousel .slider-item, 
+#results-carousel .item {
+  border: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important; /* Or use #000 if you want the gaps to be black */
+  margin: 0 !important;
+}
+
+#results-carousel .slider-navigation-previous,
+#results-carousel .slider-navigation-next {
+  /* Default is 50%. 
+     Decrease the number (e.g., 40%) to move them UP. 
+     Increase the number (e.g., 60%) to move them DOWN. */
+  top: 43% !important; 
+}
+
+.video-container {
+  position: relative;
+  display: inline-block;
+  width: 1000px; /* Matching your image width */
+  max-width: 100%;
+}
+
+video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.1); /* Slight dim to make button pop */
+  cursor: pointer;
+}
+
+.play-button {
+  width: 0; 
+  height: 0; 
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-left: 50px solid white; /* The triangle */
+  filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+  transition: transform 0.2s;
+}
+
+.play-overlay:hover .play-button {
+  transform: scale(1.1);
+}
+
+.baseline-note {
+  margin: 1.25rem auto 0 auto;
+  padding: 1rem 1.25rem;
+  max-width: 1050px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #eef6ff 0%, #f7fbff 100%);
+  border: 1px solid #b8dcff;
+  border-left: 5px solid #3b82f6;
+  color: #1e3a5f;
+  font-size: 1rem;
+  line-height: 1.55;
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.12);
+}
+
+.baseline-note strong {
+  color: #1d4ed8;
+  font-weight: 700;
+}
